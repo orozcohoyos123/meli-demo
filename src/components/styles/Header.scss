@@ -1,0 +1,21 @@
+@use '../../utils/styles/global.scss';
+
+.header {
+  align-items: center;
+  background-color: #ffe600;
+  color: #999999;
+  display: flex;
+  font-size: 18px;
+  height: 60px;
+  justify-content: center;
+}
+
+.header__wrapper {
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.header__logo {
+  padding: 0;
+}

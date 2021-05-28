@@ -1,0 +1,27 @@
+.searchBox{
+    padding: 0;
+    position: relative;
+}
+
+.searchBox input{
+    border: 1px solid #EEEEEE;
+    border-radius: 4px;
+    height: 38px;
+    position: relative;
+    width: 100%;
+    outline: none;
+    padding: 0px 58px 0px 10px;
+}
+
+.searchBox button{
+    background-color: #EEEEEE;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    height: 36px;
+    margin-top: 1px;
+    outline: none;
+    position: absolute;
+    right: 1px;
+    width: 40px;
+}
+

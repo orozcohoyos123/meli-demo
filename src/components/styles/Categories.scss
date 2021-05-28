@@ -1,0 +1,19 @@
+.bold {
+  color: #666;
+  font-weight: bold;
+}
+
+.categories {
+  padding: 16px 0;
+}
+
+.categories__item {
+  color: #999;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.categories__separator {
+  height: 14px;
+  margin: 0 5px 2px 5px;
+}
