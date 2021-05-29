@@ -1,10 +1,11 @@
 import React from "react";
 import Categories from "../components/Categories";
-import DetailContainer from "../components/DetailContainer";
-import "./styles/ItemsResult.scss";
+import Products from "../components/Products";
+import "./styles/ItemList.scss";
+import "../styles/Common.scss";
 //import queryString from 'query-string';
 
-const ItemsResult = (props) => {
+const ItemList = (props) => {
   //const queryParams = queryString.parse(props.location.search);
   const categories = ["Electrónica, Audio y Video", "Ipod", "Reproductores"];
   const products = [
@@ -116,13 +117,13 @@ const ItemsResult = (props) => {
   ]
    
   return (
-    <div className="itemsResult">
-      <div className="itemsResult__wrapper row">
+    <main className="view-wrapper">
+      <div className="view-detail row">
         <Categories items={categories} />
-        <DetailContainer products={products}/>
+        <Products products={products}/>
       </div>
-    </div>
+    </main>
   );
 };
 
-export default ItemsResult;
+export default ItemList;

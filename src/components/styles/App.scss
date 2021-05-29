@@ -1,8 +1,9 @@
+@import '../../styles/CommonColors.scss';
 * {
   font-family: Helvetica;
 }
 
 ::placeholder {
-  color: #999;
+  color: $middle-gray;
   opacity: 1;
 }

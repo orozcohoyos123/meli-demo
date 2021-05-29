@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Layout from './Layout';
 import Home from '../pages/Home';
-import ItemsResult from '../pages/ItemsResult';
+import ItemList from '../pages/ItemList';
+import ItemDetails from '../pages/ItemDetails';
 
 import "./styles/App.scss";
 import "bootstrap/dist/css/bootstrap.css";
@@ -13,7 +14,8 @@ function App() {
       <Layout>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/items" component={ItemsResult} />
+          <Route exact path="/items" component={ItemList} />
+          <Route exact path="/items/:itemId" component={ItemDetails} />
         </Switch>
       </Layout>
     </BrowserRouter>

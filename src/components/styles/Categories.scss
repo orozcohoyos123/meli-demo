@@ -1,5 +1,7 @@
+@import '../../styles/CommonColors.scss';
+
 .bold {
-  color: #666;
+  color: $gray;
   font-weight: bold;
 }
 
@@ -8,7 +10,7 @@
 }
 
 .categories__item {
-  color: #999;
+  color: $middle-gray;
   cursor: pointer;
   font-size: 14px;
 }

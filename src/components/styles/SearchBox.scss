@@ -1,10 +1,12 @@
+@import '../../styles/CommonColors.scss';
+
 .searchBox{
     padding: 0;
     position: relative;
 }
 
 .searchBox input{
-    border: 1px solid #EEEEEE;
+    border: 1px solid $light-gray;
     border-radius: 4px;
     height: 38px;
     position: relative;
@@ -14,7 +16,7 @@
 }
 
 .searchBox button{
-    background-color: #EEEEEE;
+    background-color: $light-gray;
     border: none;
     border-radius: 0 4px 4px 0;
     height: 36px;

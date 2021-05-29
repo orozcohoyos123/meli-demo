@@ -1,9 +1,9 @@
-@use '../../utils/styles/global.scss';
+@import '../../styles/CommonColors.scss';
 
 .header {
   align-items: center;
-  background-color: #ffe600;
-  color: #999999;
+  background-color: $light-yellow;
+  color: $middle-gray;
   display: flex;
   font-size: 18px;
   height: 60px;
