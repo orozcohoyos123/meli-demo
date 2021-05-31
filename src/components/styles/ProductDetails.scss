@@ -10,7 +10,9 @@
 .product__image {
     border-radius: 4px;
     position: relative;
+    max-height: 500px;
     max-width: 680px;
+    object-fit: contain;
     width: 100%;
 }
 

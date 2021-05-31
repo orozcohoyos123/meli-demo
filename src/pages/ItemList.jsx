@@ -118,20 +118,27 @@ const ItemList = (props) => {
   ] */
 
   const query = new URLSearchParams(props.location.search);
-  const params = query.get('search')
-
+  const params = query.get('search');
+  
+  const [loading, setLoading] = useState(false);
   const [products, setProducts] = useState(initialState.products);
   const [categories, setCategories] = useState(initialState.categories);
 
   useEffect(() => {
     if (params) {
+      setLoading(true);
+
       productsAdapter.getFilteredProducts(params)
         .then(({ items, categories }) => {
+          console.log(items)
           items !== undefined ? setProducts(items.slice(0, 4)) : setProducts(initialState.products);
-          console.log(categories)
           categories.length > 0 && categories !== undefined ?  setCategories(categories[0]) :  setCategories(initialState.categories)
+          setLoading(false);
         })
-        .catch((error) => console.warn);
+        .catch(err => {
+          console.error(err);
+          setLoading(false);
+        });
     }
   }, [params]);
    
@@ -139,7 +146,7 @@ const ItemList = (props) => {
     <main className="view-wrapper">
       <div className="view-detail row">
         <Categories items={categories} />
-        <Products products={products}/>
+        <Products products={products} loading={loading}/>
       </div>
     </main>
   );

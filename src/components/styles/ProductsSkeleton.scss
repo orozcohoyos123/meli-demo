@@ -1,0 +1,89 @@
+
+@import '../../styles/CommonFontSize.scss';
+   
+.items-skeleton__img::before {
+    animation: loading 1s infinite linear;
+    background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 30px;
+}
+
+.items-skeleton__img {
+    background: #f2f2f2;
+    margin-bottom: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.items-skeleton-information-price {
+    background: #f2f2f2;
+    height: $xlarge;
+    overflow: hidden;
+    position: relative;
+    width: 200px;
+}
+
+    .items-skeleton-information-price::before {
+        animation: loading 1s infinite linear;
+        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 200px;
+    }
+
+.items-skeleton-information-location {
+    background: #f2f2f2;
+    height: $xlarge;
+    margin: 16px 16px 0 16px;
+    overflow: hidden;
+    position: relative;
+    width: 100px;
+}
+
+    .items-skeleton-information-location::before {
+        animation: loading 1s infinite linear;
+        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100px;
+    }
+    
+.items-skeleton-description {
+    background: #f2f2f2;
+    height: $xlarge;
+    margin-top: 16px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+    .items-skeleton-description::before {
+        animation: loading 1s infinite linear;
+        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+@keyframes loading{
+    0%{
+        transform: translateX(0);
+    }
+    50%,
+    100%{
+        transform: translateX(460px);
+    }
+}
