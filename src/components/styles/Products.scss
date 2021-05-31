@@ -48,18 +48,24 @@
 }
 
 .items-information {
-    padding-top: 16px;
     align-items: baseline;
+    padding-top: 16px;
 }
 
 .items-information-price {
+    color: #333333;    
+    display: flex;
     font-size: $xlarge;
-    color: #333333;
+}
+
+.items-ship-logo {
+    align-self: center;
+    margin-left: 8px;
 }
 
 .items-information-location {
-    font-size: $xsmall;
     color: $middle-gray;
+    font-size: $xsmall;
 }
 
 .items-description {
