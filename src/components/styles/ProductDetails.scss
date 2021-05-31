@@ -1,7 +1,80 @@
 @import '../../styles/CommonColors.scss';
+@import '../../styles/CommonFontSize.scss';
 
-.detail-wrapper {
+.product-wrapper {
     background: white;
     border-radius: 4px;
-    padding: 0;
+    padding: 16px;
+}
+
+.product__image {
+    border-radius: 4px;
+    position: relative;
+    max-width: 680px;
+    width: 100%;
+}
+
+.product-buy-info div {
+    padding: 16px 0;
+}
+
+.product-sell-quantity {
+    color: $middle-gray;
+    font-size: $xsmall;
+    padding-bottom: 0 !important;
+}
+
+.product-name {
+    color: $dark-gray;
+    font-size: $xlarge;
+}
+
+.product-price {
+    color: $dark-gray;
+    font-size: $xxlarge;
+}
+
+.product-buy-info button {
+    background-color: $ocean-blue;
+    border: none;
+    border-radius: 4px;
+    color: $white;
+    font-size: $medium;
+    padding: 8px 0;
+    width: 100%;
+}
+
+.product-info-wrapper {
+    padding: 16px;
+}
+
+.product-info-title {
+    color: $dark-gray;
+    font-size: $xxlarge;
+    padding: 16px;
+    padding-left: 0;
+}
+
+.product-info-detail {
+    color: $middle-gray;
+    font-size: $medium;
+    padding: 16px 0 0 0;
+}
+
+@media screen and (min-width: 768px) { 
+    .product__image { 
+        padding-left: 16px;
+    }
+
+    .product-buy-info button {
+        width: calc(100% - 16px);
+    }
+
+    .product-info-title {
+        padding: 16px;
+    }
+
+    .product-info-detail {
+        padding: 16px 0 0 16px;
+    }
 }

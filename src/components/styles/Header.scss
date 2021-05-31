@@ -1,11 +1,12 @@
 @import '../../styles/CommonColors.scss';
+@import '../../styles/CommonFontSize.scss';
 
 .header {
   align-items: center;
   background-color: $light-yellow;
   color: $middle-gray;
   display: flex;
-  font-size: 18px;
+  font-size: $large;
   height: 60px;
   justify-content: center;
 }

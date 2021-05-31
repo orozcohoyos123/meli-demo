@@ -1,13 +1,13 @@
 .view-wrapper{
   background: #EEEEEE;
- /*  height: calc(100vh - 60px); */
+  min-height: calc(100vh - 60px);
   padding-bottom: 16px;
   width: 100%;
 }
 
 .view-detail {
   justify-content: center;
-  max-width: 1200px;
   margin: 0 auto;
+  max-width: 1200px;
   width: 100%;
 }

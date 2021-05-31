@@ -1,4 +1,5 @@
 @import '../../styles/CommonColors.scss';
+@import '../../styles/CommonFontSize.scss';
 
 .detail-wrapper {
     background: white;
@@ -52,12 +53,12 @@
 }
 
 .items-information-price {
-    font-size: 24px;
+    font-size: $xlarge;
     color: #333333;
 }
 
 .items-information-location {
-    font-size: 12px;
+    font-size: $xsmall;
     color: $middle-gray;
 }
 
