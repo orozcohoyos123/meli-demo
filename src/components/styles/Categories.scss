@@ -1,5 +1,8 @@
+@import '../../styles/CommonColors.scss';
+@import '../../styles/CommonFontSize.scss';
+
 .bold {
-  color: #666;
+  color: $gray;
   font-weight: bold;
 }
 
@@ -8,9 +11,9 @@
 }
 
 .categories__item {
-  color: #999;
+  color: $middle-gray;
   cursor: pointer;
-  font-size: 14px;
+  font-size: $small;
 }
 
 .categories__separator {
