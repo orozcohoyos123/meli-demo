@@ -9,28 +9,21 @@ import "../styles/Common.scss";
 const ItemList = (props) => {
   //const queryParams = queryString.parse(props.location.search);
   /* const categories = ["Electrónica, Audio y Video", "Ipod", "Reproductores"];
+  
   const products = [
     {
-      author: {
-        name: "Sebastian",
-        lastname: "Orozco"
+      id: "MLA920543431",
+      condition: "new",
+      free_shipping: true,
+      location: "Monte Chingolo",
+      picture: "http://http2.mlstatic.com/D_810459-MLA44182891230_112020-I.jpg",
+      price:{
+        currency: "ARS",
+        decimals: 0,
+        amount: 74999
       },
-      item: {
-        id: "SRSA_A12312S_123ASD",
-        title: "Disco SSD Samsung EVO 3200",
-        price: {
-          currency: "$",
-          amount: 19200,
-          decimals: 2,
-        },
-        picture: "https://http2.mlstatic.com/D_NQ_NP_845292-MLA45260349985_032021-V.webp",
-        condition: "Nuevo",
-        free_shipping: true,
-        sold_quantity: 210,
-        description: "Sellado de fábrica.",
-        location: "Distrito Federal"
-      }
-   },
+      title: "Sony Playstation 4 Slim 1tb Marvel's Spider-man/horizon Zero Dawn Complete Edition/ratchet & Clank  Color Negro"
+    },
    {
       author: {
         name: "Sebastian",
@@ -129,8 +122,8 @@ const ItemList = (props) => {
       setLoading(true);
 
       productsAdapter.getFilteredProducts(params)
-        .then(({ items, categories }) => {
-          console.log(items)
+        .then(({ author, items, categories }) => {
+          //console.log(items)
           items !== undefined ? setProducts(items.slice(0, 4)) : setProducts(initialState.products);
           categories.length > 0 && categories !== undefined ?  setCategories(categories[0]) :  setCategories(initialState.categories)
           setLoading(false);

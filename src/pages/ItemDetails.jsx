@@ -33,14 +33,14 @@ const ItemDetails = () => {
 
     const [loading, setLoading] = useState(false);
     const [product, setProduct] = useState(initialState.products[0]);
-    const [categories, setCategories] = useState(initialState.categories);
+    const [categories/*, setCategories*/] = useState(initialState.categories);
 
     useEffect(() => {
         if (itemId) {
           setLoading(true);
 
           productsAdapter.getProductById(itemId)
-            .then(({ item }) => {
+            .then(({ item /*, cateogries*/ }) => {
               item !== undefined ? setProduct(item) : setProduct(initialState.products[0]);
               //console.log(item)
               //categories.length > 0 && categories !== undefined ?  setCategories(categories[0]) :  setCategories(initialState.categories)

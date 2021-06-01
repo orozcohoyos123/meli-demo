@@ -24,7 +24,7 @@ const productsAdapter = {
             }
         } 
         catch (error) {
-            throw  await error
+            throw await error
         }
     },
     getProductById: async (id) => {
@@ -46,10 +46,9 @@ const productsAdapter = {
             }
         }
         catch (error) {
-            throw  await error
+            throw await error
         }
     }
 }
 
 export { productsAdapter };
-//const _env = process.env.NODE_ENV === 'development' ? "as" : process.env.REACT_APP_PRO_SERVER

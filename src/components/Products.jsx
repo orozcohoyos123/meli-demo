@@ -1,13 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
 import shipLogo from '../assets/ic_shipping.png';
 import { Link } from "react-router-dom";
 import "./styles/Products.scss";
 import "./styles/ProductsSkeleton.scss"
 
-const Products = (props) => {
+const Products = ({ products, loading }) => {
   return (
     <section className="detail-wrapper col-11">
-      {props.loading ? (
+      {loading ? (
         <ol className="detail-list">
           {[1, 1, 1, 1].map((number, index) => (
             <li key={index}>
@@ -18,13 +19,13 @@ const Products = (props) => {
                 <div className="items-content-wrapper">
                   <div className="items-information row">
                     <div className="col">
-                      <div className="items-information-price items-skeleton-information-price"></div>
+                      <div className="items-information-price items-information-price-skeleton"></div>
                     </div>
-                    <span className="items-information-location items-skeleton-information-location col-sm-auto"></span>
+                    <span className="items-information-location items-information-location-skeleton col-sm-auto"></span>
                     <div className="col col-sm-1"></div>
                   </div>
-                  <div className="items-description items-skeleton-description"></div>
-                  <div className="items-description items-skeleton-description"></div>
+                  <div className="items-description items-description-skeleton"></div>
+                  <div className="items-description items-description-skeleton"></div>
                 </div>
               </div>
             </li>
@@ -32,13 +33,13 @@ const Products = (props) => {
         </ol>
       ) : (
         <ol className="detail-list">
-          {props.products.map((product, index) => {
+          {products.map((product, index) => {
             return (
               <li key={`${product.id}_${index}`} >
                 <div className="items-wrapper">
                   <div className="items-image-wrapper">
                     <Link to={`/items/${product.id}`}>
-                      <img className="items__image" src={product.picture} alt="" />
+                      <img className="items__image" src={product.picture} alt={product.id} />
                     </Link>
                   </div>
                   <div className="items-content-wrapper">
@@ -65,6 +66,11 @@ const Products = (props) => {
       }
     </section>
   );
+};
+
+Products.propTypes = {
+  products: PropTypes.array.isRequired,
+  loading: PropTypes.bool.isRequired
 };
 
 export default Products;

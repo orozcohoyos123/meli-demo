@@ -1,80 +1,50 @@
 
 @import '../../styles/CommonFontSize.scss';
-   
-.items-skeleton__img::before {
-    animation: loading 1s infinite linear;
-    background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 30px;
-}
+@import "../../styles//CommonSkeleton.scss";
 
 .items-skeleton__img {
-    background: #f2f2f2;
+    @extend .skeleton;
     margin-bottom: 16px;
-    overflow: hidden;
-    position: relative;
 }
 
-.items-skeleton-information-price {
-    background: #f2f2f2;
+.items-skeleton__img::before {
+    @extend .skeleton-before;
+    width: 30px;
+    height: 100%;
+}
+
+.items-information-price-skeleton {
+    @extend .skeleton;
     height: $xlarge;
-    overflow: hidden;
-    position: relative;
     width: 200px;
 }
 
-    .items-skeleton-information-price::before {
-        animation: loading 1s infinite linear;
-        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
-        content: "";
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
+    .items-information-price-skeleton::before {
+        @extend .skeleton-before;
         width: 200px;
     }
 
-.items-skeleton-information-location {
-    background: #f2f2f2;
-    height: $xlarge;
+.items-information-location-skeleton {
+    @extend .skeleton;
     margin: 16px 16px 0 16px;
-    overflow: hidden;
-    position: relative;
+    height: $xlarge;
     width: 100px;
 }
 
-    .items-skeleton-information-location::before {
-        animation: loading 1s infinite linear;
-        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
-        content: "";
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
+    .items-information-location-skeleton::before {
+        @extend .skeleton-before;
         width: 100px;
     }
     
-.items-skeleton-description {
-    background: #f2f2f2;
+.items-description-skeleton {
+    @extend .skeleton;
     height: $xlarge;
     margin-top: 16px;
-    overflow: hidden;
-    position: relative;
     width: 100%;
 }
 
-    .items-skeleton-description::before {
-        animation: loading 1s infinite linear;
-        background: linear-gradient(to right, #f2f2f2, #ddd, #f2f2f2);
-        content: "";
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
+    .items-description-skeleton::before {
+        @extend .skeleton-before;
         width: 100%;
     }
 
