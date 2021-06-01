@@ -123,7 +123,7 @@ const ItemList = (props) => {
 
       productsAdapter.getFilteredProducts(params)
         .then(({ author, items, categories }) => {
-          //console.log(items)
+          console.log(categories)
           items !== undefined ? setProducts(items.slice(0, 4)) : setProducts(initialState.products);
           categories.length > 0 && categories !== undefined ?  setCategories(categories[0]) :  setCategories(initialState.categories)
           setLoading(false);

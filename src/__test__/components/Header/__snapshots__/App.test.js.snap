@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App sanpshot Comprobar UI componente App 1`] = `
+Array [
+  <header
+    className="header"
+  >
+    <div
+      className="header__wrapper row"
+    >
+      <a
+        className="header__logo col-2 col-md-1"
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="Meli"
+          src="Logo_ML.png"
+        />
+      </a>
+      <div
+        className="searchBox col-9 col-md-10"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            name="query"
+            placeholder="Nunca dejes de buscar"
+            type="text"
+          />
+          <button
+            type="submit"
+          >
+            <img
+              alt="Search"
+              src="ic_Search.png"
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>,
+  <div
+    className="home"
+  />,
+]
+`;

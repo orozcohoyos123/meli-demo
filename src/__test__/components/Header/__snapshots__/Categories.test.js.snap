@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories sanpshot Comprobar UI componente Categories 1`] = `
+Array [
+  <header
+    className="header"
+  >
+    <div
+      className="header__wrapper row"
+    >
+      <a
+        className="header__logo col-2 col-md-1"
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="Meli"
+          src="Logo_ML.png"
+        />
+      </a>
+      <div
+        className="searchBox col-9 col-md-10"
+      >
+        <form
+          onSubmit={[Function]}
+        >
+          <input
+            name="query"
+            placeholder="Nunca dejes de buscar"
+            type="text"
+          />
+          <button
+            type="submit"
+          >
+            <img
+              alt="Search"
+              src="ic_Search.png"
+            />
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>,
+  <div
+    className="categories col-11"
+  >
+    <div
+      className="categories__container"
+    >
+      <a
+        href="/items?search=Consolas y Videojuegos"
+        onClick={[Function]}
+      >
+        <span
+          className="categories__item "
+        >
+          Consolas y Videojuegos
+        </span>
+      </a>
+      <img
+        alt="Next"
+        className="categories__separator"
+        src="ic_next.png"
+      />
+      <a
+        href="/items?search=Consolas"
+        onClick={[Function]}
+      >
+        <span
+          className="categories__item bold"
+        >
+          Consolas
+        </span>
+      </a>
+    </div>
+  </div>,
+]
+`;
