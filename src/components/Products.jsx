@@ -33,7 +33,7 @@ const Products = ({ products, loading }) => {
         </ol>
       ) : (
         <ol className="detail-list">
-          {products.map((product, index) => {
+          {products && products.map((product, index) => {
             return (
               <li key={`${product.id}_${index}`} >
                 <div className="items-wrapper">
@@ -69,8 +69,8 @@ const Products = ({ products, loading }) => {
 };
 
 Products.propTypes = {
-  products: PropTypes.array.isRequired,
-  loading: PropTypes.bool.isRequired
+  products: PropTypes.array,
+  loading: PropTypes.bool
 };
 
 export default Products;

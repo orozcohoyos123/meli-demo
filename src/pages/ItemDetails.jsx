@@ -42,7 +42,7 @@ const ItemDetails = () => {
           productsAdapter.getProductById(itemId)
             .then(({ item /*, cateogries*/ }) => {
               item !== undefined ? setProduct(item) : setProduct(initialState.products[0]);
-              //console.log(item)
+              console.log(item)
               //categories.length > 0 && categories !== undefined ?  setCategories(categories[0]) :  setCategories(initialState.categories)
               setLoading(false);
             })

@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer';
-import Header from '../../../components/Header';
-import {BrowserRouter} from 'react-router-dom'
+import Header from '../../components/Header';
+import {BrowserRouter} from 'react-router-dom';
 
 describe('<Header />', () => {
     test('Render del componente Header', () => {
@@ -14,7 +14,6 @@ describe('<Header />', () => {
 
         const logo = header.find('.header__wrapper');
         const searchBox = header.find('.searchBox');
-        console.log(header)
         
         expect(header.length).toEqual(1);
         expect(logo.length).toEqual(1);

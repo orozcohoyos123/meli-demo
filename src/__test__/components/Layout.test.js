@@ -1,9 +1,9 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer'
-import Layout from '../../../components/Layout';
+import Layout from '../../components/Layout';
 import {BrowserRouter} from 'react-router-dom'
-import Home from '../../../pages/Home'
+import Home from '../../pages/Home'
 
 describe('<Layout />', () => {
     test('Debe renderizar el componente Layout sin hijos.', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer'
-import App from '../../../components/App';
+import App from '../../components/App';
 
 describe('<App />', () => {
     test('Debe renderizar el componente App correctamente.', () => {

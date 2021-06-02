@@ -1,38 +1,46 @@
-import React, { useRef } from "react";
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 import { useHistory } from 'react-router-dom';
 import SearchLogo from "../assets/ic_Search.png";
 import './styles/SearchBox.scss';
 
 
-const SearchBox = () => {
+const SearchBox = ({ onSubmit }) => {
   const history = useHistory();
-  const form = useRef(null);
-
+  const [query, setQuery] = useState("");
+  
   const handleSubmit = (e) => {
     e.preventDefault();
+        
+    if (!query.trim()) return;
     
-    const formData = new FormData(form.current);
-    if (!formData.get('query').trim()) return;
+    if (onSubmit) onSubmit();
 
     history.push({
       pathname: '/items',
-      search: `?search=${formData.get('query').trim()}`
+      search: `?search=${query.trim()}`
     })
   };
 
   return (
     <div className="searchBox col-9 col-md-10">
-      <form ref={form} onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <input 
+          className="searchBox__input"
           name="query"
           type="text" 
-          placeholder="Nunca dejes de buscar" />
-        <button type="submit">
+          placeholder="Nunca dejes de buscar" 
+          onChange={e => setQuery(e.target.value)}/>
+        <button type="submit" className="searchBox__button">
           <img src={SearchLogo} alt="Search" />
         </button>
       </form>
     </div>
   );
+};
+
+SearchBox.propTypes = {
+  onSubmit: PropTypes.func
 };
 
 export default SearchBox;

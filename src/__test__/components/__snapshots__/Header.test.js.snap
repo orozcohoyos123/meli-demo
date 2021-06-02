@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Layout sanpshot Comprobar UI componente Layout 1`] = `
+exports[`Header sanpshot Comprobar UI componente Header 1`] = `
 <header
   className="header"
 >
@@ -24,11 +24,14 @@ exports[`Layout sanpshot Comprobar UI componente Layout 1`] = `
         onSubmit={[Function]}
       >
         <input
+          className="searchBox__input"
           name="query"
+          onChange={[Function]}
           placeholder="Nunca dejes de buscar"
           type="text"
         />
         <button
+          className="searchBox__button"
           type="submit"
         >
           <img

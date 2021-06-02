@@ -4,7 +4,6 @@ const endpoint = process.env.REACT_APP_ENDPOINT_PRODUCTS
 
 const productsAdapter = {
     getFilteredProducts: async (query) => {
-        
         try {
             if (query) {
                 const url = urlTemplate.parse(`${server}/api/${endpoint}?q=${query}`).expand({});

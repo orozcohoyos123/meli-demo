@@ -34,47 +34,58 @@ const ProductDetails = ({ product, loading }) => {
                 </>
             ) : (
                 <>
-                    <div className="row">
-                        <div className="col-12 col-md-8">
-                            <div>
-                                <img className="product__image" src={product.picture} alt="" />
+                    {product &&
+                        <>
+                            <div className="row">
+                                <div className="col-12 col-md-8">
+                                    <div>
+                                        <img className="product__image" src={product.picture} alt="" />
+                                    </div>
+                                </div>
+                                <div className="product-buy-info col-12 col-md-4">
+                                    <div className="product-sell-quantity">
+                                        <span>
+                                            { product.condition } 
+                                        </span>
+                                        <span>
+                                            &nbsp; - &nbsp; {product.sold_quantity} &nbsp;
+                                        </span>
+                                        <span>
+                                            vendido{(product.sold_quantity > 1 || product.sold_quantity === 0) ? 's' : ''}
+                                        </span>
+                                    </div>
+                                    <div className="product-name">
+                                        <span>
+                                            {product.title}
+                                        </span>
+                                    </div>
+                                        {product.price && 
+                                            <div className="product-price">
+                                                {product.price.currency} {new Intl.NumberFormat("de-DE").format(product.price.amount)}
+                                            </div>
+                                        }
+                                    <div>
+                                        <button className="ripple">
+                                            Comprar
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
-                        </div>
-                        <div className="product-buy-info col-12 col-md-4">
-                            <div className="product-sell-quantity">
-                                <span>
-                                    {product.condition === "new" ? "Nuevo" : "Usado"} - {product.sold_quantity} vendido{(product.sold_quantity > 1 || product.sold_quantity === 0) ? 's' : ''}
-                                </span>
+                            <div className="product-info-wrapper row">
+                                <div className="product-info-title col-12">
+                                    <span>
+                                        Descripción del producto
+                                    </span>
+                                </div>
+                                <div className="product-info-detail col-12 col-md-8">
+                                    <span >
+                                        {product.description}
+                                    </span>
+                                </div>
                             </div>
-                            <div className="product-name">
-                                <span>
-                                    {product.title}
-                                </span>
-                            </div>
-                            <div className="product-price">
-                                <span>
-                                    {product.price && `${product.price.currency} ${new Intl.NumberFormat("de-DE").format(product.price.amount)}`}
-                                </span>
-                            </div>
-                            <div>
-                                <button className="ripple">
-                                    Comprar
-                       </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="product-info-wrapper row">
-                        <div className="product-info-title col-12">
-                            <span>
-                                Descripción del producto
-                    </span>
-                        </div>
-                        <div className="product-info-detail col-12 col-md-8">
-                            <span >
-                                {product.description}
-                            </span>
-                        </div>
-                    </div>
+                        </>
+                    }
                 </>
             )}
         </section>
@@ -82,8 +93,8 @@ const ProductDetails = ({ product, loading }) => {
 }
 
 ProductDetails.propTypes = {
-    product: PropTypes.object.isRequired,
-    loading: PropTypes.bool.isRequired
+    product: PropTypes.object,
+    loading: PropTypes.bool
 };
 
 export default ProductDetails;

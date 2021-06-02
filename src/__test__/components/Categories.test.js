@@ -1,8 +1,8 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer'
-import Categories from '../../../components/Categories';
-import BrowserRouterMock from '../../../__mocks__/BrowserRouterMock';
+import Categories from '../../components/Categories';
+import BrowserRouterMock from '../../__mocks__/BrowserRouterMock';
 
 const mockCategories = [
     {id: "MLA1144", name: "Consolas y Videojuegos"},
@@ -16,23 +16,21 @@ describe('<Categories />', () => {
                 <Categories items={mockCategories} />
             </BrowserRouterMock>
         );
-        
+
+        const items = categories.find('.categories__item');
         expect(categories.length).toEqual(1);
+        expect(items.length).toEqual(mockCategories.length);
     })
 
-    test('Debe fallar el render del componente Categories sin mock de categorias', () => {
-        try {
-            const categories = mount(
-                <BrowserRouterMock>
-                    <Categories />
-                </BrowserRouterMock>
-            );
-    
-            expect(true).toBe(false);
-        } 
-        catch (e) {
-            expect(e).toEqual(new Error("Cannot read property 'map' of undefined"));
-        }
+    test('Deben haber cero items si no se envía el mock de categorias', () => {
+        const categories = mount(
+            <BrowserRouterMock>
+                <Categories />
+            </BrowserRouterMock>
+        );
+
+        const items = categories.find('.categories__item');
+        expect(items.length).toEqual(0);
     })
 });
 
