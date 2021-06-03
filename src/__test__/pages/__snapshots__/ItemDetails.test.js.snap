@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ItemDetails sanpshot Comprobar UI componente ItemDetails 1`] = `
+<main
+  className="view-wrapper"
+>
+  <div
+    className="view-detail row"
+  >
+    <div
+      className="categories col-11"
+    >
+      <div
+        className="categories__container"
+      >
+        <a
+          href="/items?search="
+          onClick={[Function]}
+        >
+          <span
+            className="categories__item bold"
+          >
+            
+          </span>
+        </a>
+      </div>
+    </div>
+    <section
+      className="product-wrapper col-11"
+    >
+      <div
+        className="row"
+      >
+        <div
+          className="col-12 col-md-8"
+        >
+          <div>
+            <img
+              alt=""
+              className="product__image"
+            />
+          </div>
+        </div>
+        <div
+          className="product-buy-info col-12 col-md-4"
+        >
+          <div
+            className="product-sell-quantity"
+          >
+            <span />
+            <span>
+                -   
+                
+            </span>
+            <span>
+              vendido
+              
+            </span>
+          </div>
+          <div
+            className="product-name"
+          >
+            <span />
+          </div>
+          <div>
+            <button
+              className="ripple"
+            >
+              Comprar
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        className="product-info-wrapper row"
+      >
+        <div
+          className="product-info-title col-12"
+        >
+          <span>
+            Descripción del producto
+          </span>
+        </div>
+        <div
+          className="product-info-detail col-12 col-md-8"
+        >
+          <span />
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+`;

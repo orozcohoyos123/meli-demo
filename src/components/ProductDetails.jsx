@@ -59,11 +59,11 @@ const ProductDetails = ({ product, loading }) => {
                                             {product.title}
                                         </span>
                                     </div>
-                                        {product.price && 
-                                            <div className="product-price">
-                                                {product.price.currency} {new Intl.NumberFormat("de-DE").format(product.price.amount)}
-                                            </div>
-                                        }
+                                    {product.price && 
+                                        <div className="product-price">
+                                            {product.price.currency} {new Intl.NumberFormat("de-DE").format(product.price.amount)}
+                                        </div>
+                                    }
                                     <div>
                                         <button className="ripple">
                                             Comprar

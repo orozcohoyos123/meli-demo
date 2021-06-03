@@ -1,53 +1,52 @@
-import urlTemplate from 'url-template'
 const server = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_SERVER : process.env.REACT_APP_PRO_SERVER
 const endpoint = process.env.REACT_APP_ENDPOINT_PRODUCTS
 
-const productsAdapter = {
-    getFilteredProducts: async (query) => {
-        try {
-            if (query) {
-                const url = urlTemplate.parse(`${server}/api/${endpoint}?q=${query}`).expand({});
+const headers = {
+    'Accept': 'aplication/json',
+    'Content-Type': 'application/json'
+};
 
-                const result = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'aplication/json',
-                        'Content-Type': 'application/json'
-                    }
-                })
-                
-                return result.json();
-            } 
-            else {
-                return {}
-            }
+const getFilteredProducts = async function getFilteredProducts (filter) {
+    try {
+        if (filter) {
+            const res = await fetch(`${server}/api/${endpoint}?q=${filter}`, {
+                method: 'GET',
+                headers: headers
+            })
+            
+            return res.json();
         } 
-        catch (error) {
-            throw await error
-        }
-    },
-    getProductById: async (id) => {
-        try {
-            if (id) {
-                const url = urlTemplate.parse(`${server}/api/${endpoint}/${id}`).expand({});
-                const result = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        'Accept': 'aplication/json',
-                        'Content-Type': 'application/json'
-                    }
-                })
+        else 
+            return {}
+        
+    } 
+    catch (error) {
+        throw await error
+    }
+};
 
-                return result.json();
-            } 
-            else {
-                return {}
-            }
-        }
-        catch (error) {
-            throw await error
-        }
+const getProductById = async function getProductById(itemId) {
+    try {
+        if (itemId) {
+            const res = await fetch(`${server}/api/${endpoint}/${itemId}`, {
+                method: 'GET',
+                headers: headers
+            })
+
+            return res.json();
+        } 
+        else 
+            return {}
+        
+    }
+    catch (error) {
+        throw await error
     }
 }
 
-export { productsAdapter };
+const productsAdapter = {
+    getFilteredProducts,
+    getProductById,
+}
+
+export default productsAdapter;

@@ -1,8 +1,10 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer';
-import { BrowserRouter } from 'react-router-dom';
+import ReactRouterDOM, {Router} from 'react-router-dom';
 import SearchBox from '../../components/SearchBox';
+
+import {createMemoryHistory} from 'history'
 
 describe('<SearchBox />', () => {
     test('Debe renderizar el componente SearchBox.', () => {
@@ -25,18 +27,19 @@ describe('<SearchBox />', () => {
     })   
 
     test('Debe realizar el evento submit si llena el input.', () => {
-        const handleSubmit = jest.fn();
+        const history = createMemoryHistory()
+        const pushSpy = jest.spyOn(history, 'push') 
+
         const wrapper = mount(
-            <BrowserRouter>
-                <SearchBox onSubmit={handleSubmit}/>
-            </BrowserRouter>
+            <Router history={history}>
+                <SearchBox/>
+            </Router>
         );
-        
         const form = wrapper.find('form');
 
         wrapper.find('input').simulate('change', { target: { value: 'Ps4' } });
         form.simulate('submit')
-        expect(handleSubmit).toHaveBeenCalled(); 
+        expect(pushSpy).toHaveBeenCalledWith({"pathname": "/items", "search": "?search=Ps4"})
     }) 
 });
 

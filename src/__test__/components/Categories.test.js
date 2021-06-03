@@ -2,7 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer'
 import Categories from '../../components/Categories';
-import BrowserRouterMock from '../../__mocks__/BrowserRouterMock';
+import { MemoryRouter } from 'react-router-dom';
 
 const mockCategories = [
     {id: "MLA1144", name: "Consolas y Videojuegos"},
@@ -12,9 +12,9 @@ const mockCategories = [
 describe('<Categories />', () => {
     test('Debe renderizar el componente Categories con mock de categorias', () => {
         const categories = mount(
-            <BrowserRouterMock>
+            <MemoryRouter>
                 <Categories items={mockCategories} />
-            </BrowserRouterMock>
+            </MemoryRouter>
         );
 
         const items = categories.find('.categories__item');
@@ -24,9 +24,9 @@ describe('<Categories />', () => {
 
     test('Deben haber cero items si no se envía el mock de categorias', () => {
         const categories = mount(
-            <BrowserRouterMock>
+            <MemoryRouter>
                 <Categories />
-            </BrowserRouterMock>
+            </MemoryRouter>
         );
 
         const items = categories.find('.categories__item');
@@ -38,9 +38,9 @@ describe('Categories sanpshot', () => {
     test('Comprobar UI componente Categories', () => {
         const categories = 
             create(
-                <BrowserRouterMock>
+                <MemoryRouter>
                     <Categories items={mockCategories} />
-                </BrowserRouterMock>
+                </MemoryRouter>
             );
         
         expect(categories.toJSON()).toMatchSnapshot();

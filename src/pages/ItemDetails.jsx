@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Categories from "../components/Categories";
 import ProductDetails from "../components/ProductDetails";
-import { productsAdapter } from '../adapters/products';
+import  productsAdapter  from '../adapters/products';
 import { useParams } from 'react-router-dom';
 import { initialState } from '../initialState';
 import "../styles/Common.scss";

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Categories from "../components/Categories";
 import Products from "../components/Products";
-import { productsAdapter } from '../adapters/products';
+import  productsAdapter  from '../adapters/products';
 import { initialState } from '../initialState';
 import "./styles/ItemList.scss";
 import "../styles/Common.scss";

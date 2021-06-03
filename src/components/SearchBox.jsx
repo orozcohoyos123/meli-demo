@@ -5,7 +5,7 @@ import SearchLogo from "../assets/ic_Search.png";
 import './styles/SearchBox.scss';
 
 
-const SearchBox = ({ onSubmit }) => {
+const SearchBox = () => {
   const history = useHistory();
   const [query, setQuery] = useState("");
   
@@ -14,8 +14,6 @@ const SearchBox = ({ onSubmit }) => {
         
     if (!query.trim()) return;
     
-    if (onSubmit) onSubmit();
-
     history.push({
       pathname: '/items',
       search: `?search=${query.trim()}`

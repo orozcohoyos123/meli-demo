@@ -1,7 +1,7 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { create } from 'react-test-renderer'
-import { BrowserRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import Products from '../../components/Products';
 
 const mockProducts = [
@@ -22,7 +22,7 @@ const mockProducts = [
 
 describe('<Products />', () => {
     test('Debe renderizar los skeleton items del componente Products sin mock de productos y con parametro cargando en true.', () => {
-        const products = mount(<Products loading={true}/>);
+        const products = shallow(<Products loading={true}/>);
         const skeleton_items = products.find('.items-skeleton__img');
         const items = products.find('img');
 
@@ -32,7 +32,7 @@ describe('<Products />', () => {
     }) 
 
     test('No debe renderizar items del componente Products sin mock de productos y con parametro cargando en false.', () => {
-        const products = mount(<Products loading={false}/>);
+        const products = shallow(<Products loading={false}/>);
         const items = products.find('items-wrapper');
 
         expect(products.length).toEqual(1);
@@ -41,9 +41,9 @@ describe('<Products />', () => {
 
     test('Debe renderizar items del componente Products con mock de productos y con parametro cargando en false.', () => {
         const products = mount(
-            <BrowserRouter>
+            <MemoryRouter>
                 <Products products={mockProducts} loading={false}/>
-            </BrowserRouter>
+            </MemoryRouter>
         );
         const skeleton_items = products.find('.items-skeleton__img');
         const items = products.find('img').filter('.items__image');
@@ -54,22 +54,22 @@ describe('<Products />', () => {
     }) 
 
     test('No debe renderizar items del componente Products con mock de productos y con parametro cargando en true.', () => {
-        const products = mount(<Products loading={true}/>);
+        const products = shallow(<Products loading={true}/>);
         const skeleton_items = products.find('.items-skeleton__img');
         const items = products.find('img');
 
         expect(products.length).toEqual(1);
         expect(skeleton_items.length).toEqual(4);
         expect(items.length).toEqual(0);
-    }) 
+    })  
 });
 
 describe('Products sanpshot', () => { 
     test('Comprobar UI componente Products', () => {
         const products = create(
-            <BrowserRouter>
+            <MemoryRouter>
                 <Products products={mockProducts} loading={false}/>
-            </BrowserRouter>
+            </MemoryRouter>
         );
         
         expect(products.toJSON()).toMatchSnapshot();
