@@ -10,7 +10,7 @@ describe('<App />', () => {
         const home = app.find('.home');
 
         expect(app.length).toEqual(1);
-        expect(header.length).toEqual(1);
+        expect(header.length).toEqual(1); 
         expect(home.length).toEqual(1);
     })
 });

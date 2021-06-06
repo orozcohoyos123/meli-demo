@@ -6,7 +6,7 @@ const headers = {
     'Content-Type': 'application/json'
 };
 
-const getFilteredProducts = async function getFilteredProducts (filter) {
+const getFilteredProducts = async (filter) => {
     try {
         if (filter) {
             const res = await fetch(`${server}/api/${endpoint}?q=${filter}`, {
@@ -25,7 +25,7 @@ const getFilteredProducts = async function getFilteredProducts (filter) {
     }
 };
 
-const getProductById = async function getProductById(itemId) {
+const getProductById = async (itemId) => {
     try {
         if (itemId) {
             const res = await fetch(`${server}/api/${endpoint}/${itemId}`, {

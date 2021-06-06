@@ -119,6 +119,15 @@ const mockProductDetail = {
 };
 
 describe("Products adapter", () => {
+    
+    /* test('Debe obtener la configuracion de produccion si se envia como tal.', async () => {
+        process.env.NODE_ENV = 'production';
+
+        const server = await productsAdapter.server;
+        console.log(server)
+        expect(server).toBeTruthy();
+    }); */
+
     test('Debe obtener cuatro productos', async () => {
         jest.spyOn(global, "fetch")
             .mockResolvedValue({ json: () => mockProducts });
@@ -160,7 +169,7 @@ describe("Products adapter", () => {
         expect(Object.keys(result)).toEqual(arrayMock);
 
         global.fetch.mockClear();
-    });
+    }); 
 
     test('No debe retornar detalle del producto si no se envia nada', async () => {
         const result = await productsAdapter.getProductById("");

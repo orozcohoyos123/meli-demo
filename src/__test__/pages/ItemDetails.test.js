@@ -11,6 +11,16 @@ const mockProducts = {
         name: "Sebastian",
         lastname: "Orozco"
     },
+    categories: [
+        {
+            id: "MLA1144",
+            name: "Consolas y Videojuegos"
+        },
+        {
+            id: "MLA438566",
+            name: "Consolas"
+        }
+    ],
     item: {
         id: "SRSA_A12312S_123ASD",
         title: "Disco SSD Samsung EVO 3200",
