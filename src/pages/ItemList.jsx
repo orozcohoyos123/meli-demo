@@ -34,7 +34,7 @@ const ItemList = (props) => {
   return (
     <main className="view-wrapper">
       <div className="view-detail row">
-        {params.trim() &&
+        {params &&
           <>
             <Categories items={categories} />
             <Products products={products} loading={loading} />

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./styles/Categories.scss";
 import NextLogo from "../assets/ic_next.png";
 import { Link } from "react-router-dom";
@@ -33,5 +34,10 @@ const Categories = (props) => {
     </div>
   );
 };
+
+Categories.propTypes = {
+  categories: PropTypes.array
+};
+
 
 export default Categories;

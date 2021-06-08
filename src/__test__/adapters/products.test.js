@@ -192,3 +192,4 @@ describe("Products adapter", () => {
         global.fetch.mockClear();
     });
 });
+ 
