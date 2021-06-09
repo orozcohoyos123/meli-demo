@@ -1,9 +1,11 @@
 import * as React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer';
-import BrowserRouterMock from '../../__mocks__/BrowserRouterMock'
+import { MemoryRouter } from 'react-router-dom';
 import productsAdapter from '../../adapters/products';
+import BrowserRouterMock from '../../__mocks__/BrowserRouterMock';
 import ItemList from '../../pages/ItemList';
+import { act } from "@testing-library/react";
 
 const mockProducts = {
     author: {
@@ -66,23 +68,77 @@ const mockProducts = {
 }
 
 describe('<ItemList />', () => {
-    test('Debe renderizar el componente.', () => {
+    test("Debe renderizar el componente sin datos", async () => {
+        jest.spyOn(productsAdapter, 'getFilteredProducts').mockResolvedValue({});
 
-        const useEffectspy = jest.spyOn(React, "useEffect").mockResolvedValue(mockProducts);
+        await act(async () => {
+            const itemList = mount(
+                <BrowserRouterMock>
+                    <ItemList />
+                </BrowserRouterMock>
+            );
 
-        // bug en jest spyON, no sobreescribe la funcion por lo que no puede espiarla => https://github.com/facebook/jest/issues/6972
-        //const spy = jest.spyOn(productsAdapter, 'getFilteredProducts'); 
-        
-        const itemList = mount(
-            <BrowserRouterMock>
-                <ItemList />
-            </BrowserRouterMock>
-        );
-        
-        expect(useEffectspy).toHaveBeenCalled();
-        //expect(spy).toHaveBeenCalled();
-        expect(itemList.length).toEqual(1);
+            expect(itemList.length).toEqual(1); 
+        });
     });
+
+    test("Debe renderizar el componente con datos completos", async () => {
+        jest.spyOn(productsAdapter, 'getFilteredProducts').mockResolvedValue(mockProducts);
+
+        await act(async () => {
+            const itemList = mount(
+                <BrowserRouterMock>
+                    <ItemList />
+                </BrowserRouterMock>
+            );
+
+            expect(itemList.length).toEqual(1); 
+        });
+    });
+
+    test("Debe renderizar el componente sin items", async () => {
+        mockProducts.items = undefined;
+        jest.spyOn(productsAdapter, 'getFilteredProducts').mockResolvedValue(mockProducts);
+
+        await act(async () => {
+            const itemList = mount(
+                <BrowserRouterMock>
+                    <ItemList />
+                </BrowserRouterMock>
+            );
+
+            expect(itemList.length).toEqual(1); 
+        });
+    });
+
+    test("Debe renderizar el componente sin categorias", async () => {
+        mockProducts.categories = [];
+        jest.spyOn(productsAdapter, 'getFilteredProducts').mockResolvedValue(mockProducts);
+
+        await act(async () => {
+            const itemList = mount(
+                <BrowserRouterMock>
+                    <ItemList />
+                </BrowserRouterMock>
+            );
+
+            expect(itemList.length).toEqual(1); 
+        });
+    });
+
+    /* test("Debe renderizar el componente sobreescribiendo URLSearchParams", async () => {
+        jest.spyOn(URLSearchParams.prototype, "get").mockReturnValue("search");
+        
+        await act(async () => {
+            const itemList = mount(
+                <BrowserRouterMock>
+                    <ItemList />
+                </BrowserRouterMock>
+            );
+
+            expect(itemList.length).toEqual(1); 
+        });
+    });  */
 });
     
 describe('ItemList sanpshot', () => {

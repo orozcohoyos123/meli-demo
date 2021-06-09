@@ -15,20 +15,18 @@ const ItemList = (props) => {
   const [categories, setCategories] = useState(initialState.categories);
 
   useEffect(() => {
-    if (params) {
-      setLoading(true);
+    setLoading(true);
 
-      productsAdapter.getFilteredProducts(params)
-        .then(({ items, categories }) => {
-          items !== undefined ? setProducts(items) : setProducts(initialState.products);
-          categories.length > 0 && categories !== undefined ? setCategories(categories[0]) : setCategories(initialState.categories)
-          setLoading(false);
-        })
-        .catch(err => {
-          console.error(err);
-          setLoading(false);
-        });
-    }
+    productsAdapter.getFilteredProducts(params)
+      .then(({ items, categories }) => {
+        items !== undefined ? setProducts(items) : setProducts(initialState.products);
+        categories.length > 0 && categories !== undefined ? setCategories(categories[0]) : setCategories(initialState.categories)
+        setLoading(false);
+      })
+      .catch(err => {
+        //console.error(err);
+        setLoading(false);
+      });
   }, [params]);
 
   return (

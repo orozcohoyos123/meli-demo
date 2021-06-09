@@ -1,8 +1,8 @@
-import * as React from 'react';
+import React from 'react';
 import { mount } from 'enzyme';
 import { create } from 'react-test-renderer';
 import { MemoryRouter } from 'react-router-dom';
-import productsAdapter  from '../../adapters/products';
+import productsAdapter from '../../adapters/products';
 import ItemDetails from '../../pages/ItemDetails';
 import { act } from "@testing-library/react";
 
@@ -38,58 +38,63 @@ const mockProducts = {
 };
 
 describe('<ItemDetails />', () => {
-    test('Debe renderizar el componente.', () => {
+    test("Debe renderizar el componente sin datos", async () => {
+        jest.spyOn(productsAdapter, 'getProductById').mockResolvedValue({});
 
-        const useEffectspy = jest.spyOn(React, "useEffect").mockResolvedValue(mockProducts);
-
-        // bug en jest spyON, no sobreescribe la funcion por lo que no puede espiarla => https://github.com/facebook/jest/issues/6972
-        //const spy = jest.spyOn(productsAdapter, 'getProductById'); 
-        
-        const itemDetails = mount(
-            <MemoryRouter>
-                <ItemDetails />
-            </MemoryRouter>
-        );
-        
-        expect(useEffectspy).toHaveBeenCalled();
-        //expect(spy).toHaveBeenCalled();
-        expect(itemDetails.length).toEqual(1);
-    })
-
-/* 
-    test("Debe renderizar el componente simulando useEffect con un mock de productos", async () => {
         await act(async () => {
-            jest.spyOn(productsAdapter, 'getProductById').mockResolvedValue(mockProducts);
-
             const itemDetails = mount(
                 <MemoryRouter>
                     <ItemDetails />
                 </MemoryRouter>
             );
-            
-            expect(itemDetails).toMatchSnapshot();
+
+            expect(itemDetails.length).toEqual(1); 
         });
-    });  */
+    });
 
-    /* test('Debe renderizar el componente.', () => {
-        const itemDetails = mount(
-            <MemoryRouter>
-                <ItemDetails />
-            </MemoryRouter>
-        );
-        
-        console.log(itemDetails.debug())
-        expect(itemDetails.length).toEqual(1);
-    }) */
+    test("Debe renderizar el componente con datos completos", async () => {
+        jest.spyOn(productsAdapter, 'getProductById').mockResolvedValue(mockProducts);
 
-    /*  test("Debe renderizar el componente", async () => {
-         await act(async () => {
-             jest.spyOn(ItemsServices, 'fetchItemById').mockResolvedValue(mockItemsDetail);
- 
-             const wrapper = mount(<ShowDetail history={mockProperties} />);
-             expect(wrapper).toMatchSnapshot();
-         });
-     }); */
+        await act(async () => {
+            const itemDetails = mount(
+                <MemoryRouter>
+                    <ItemDetails />
+                </MemoryRouter>
+            );
+
+            expect(itemDetails.length).toEqual(1); 
+        });
+    });
+
+    test("Debe renderizar el componente sin items", async () => {
+        mockProducts.item = undefined;
+        jest.spyOn(productsAdapter, 'getProductById').mockResolvedValue(mockProducts);
+
+        await act(async () => {
+            const itemDetails = mount(
+                <MemoryRouter>
+                    <ItemDetails />
+                </MemoryRouter>
+            );
+
+            expect(itemDetails.length).toEqual(1); 
+        });
+    });
+
+    test("Debe renderizar el componente sin categorias", async () => {
+        mockProducts.categories = [];
+        jest.spyOn(productsAdapter, 'getProductById').mockResolvedValue(mockProducts);
+
+        await act(async () => {
+            const itemDetails = mount(
+                <MemoryRouter>
+                    <ItemDetails />
+                </MemoryRouter>
+            );
+
+            expect(itemDetails.length).toEqual(1); 
+        });
+    });
 });
 
 describe('ItemDetails sanpshot', () => {
