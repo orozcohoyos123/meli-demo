@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductDetails sanpshot Comprobar UI componente ProductDetails 1`] = `
+<section
+  className="product-wrapper col-11"
+/>
+`;

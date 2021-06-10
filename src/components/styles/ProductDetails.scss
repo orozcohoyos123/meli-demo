@@ -10,7 +10,9 @@
 .product__image {
     border-radius: 4px;
     position: relative;
+    max-height: 500px;
     max-width: 680px;
+    object-fit: contain;
     width: 100%;
 }
 
@@ -61,9 +63,26 @@
     padding: 16px 0 0 0;
 }
 
+/* animación tomada de: https://codepen.io/finnhvman/pen/jLXKJw */
+.ripple {
+    background-position: center;
+    transition: background 0.8s;
+  }
+
+  .ripple:hover {
+    background: $dark-ocean-blue radial-gradient(circle, transparent 1%, $dark-ocean-blue 1%) center/15000%;
+  }
+
+  .ripple:active {
+    background-color: $ocean-blue;
+    background-size: 100%;
+    transition: background 0s;
+  }
+
 @media screen and (min-width: 768px) { 
     .product__image { 
         padding-left: 16px;
+        padding-top: 16px;
     }
 
     .product-buy-info button {

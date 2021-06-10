@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products sanpshot Comprobar UI componente Products 1`] = `
+<section
+  className="detail-wrapper col-11"
+>
+  <ol
+    className="detail-list"
+  >
+    <li>
+      <div
+        className="items-wrapper"
+      >
+        <div
+          className="items-image-wrapper"
+        >
+          <a
+            href="/items/MLA920543431"
+            onClick={[Function]}
+          >
+            <img
+              alt="MLA920543431"
+              className="items__image"
+              src="http://http2.mlstatic.com/D_810459-MLA44182891230_112020-I.jpg"
+            />
+          </a>
+        </div>
+        <div
+          className="items-content-wrapper"
+        >
+          <div
+            className="items-information row"
+          >
+            <a
+              className="items-information-price col"
+              href="/items/MLA920543431"
+              onClick={[Function]}
+            >
+              ARS 74.999
+              <img
+                alt=""
+                className="items-ship-logo"
+                src="ic_shipping.png"
+              />
+            </a>
+            <span
+              className="items-information-location col-sm-auto"
+            >
+              Monte Chingolo
+            </span>
+            <div
+              className="col col-sm-1"
+            />
+          </div>
+          <div
+            className="items-description"
+          >
+            Sony Playstation 4 Slim 1tb Marvel's Spider-man/horizon Zero Dawn Complete Edition/ratchet & Clank  Color Negro
+          </div>
+        </div>
+      </div>
+    </li>
+  </ol>
+</section>
+`;

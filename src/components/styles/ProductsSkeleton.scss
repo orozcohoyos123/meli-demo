@@ -1,0 +1,59 @@
+
+@import '../../styles/CommonFontSize.scss';
+@import "../../styles//CommonSkeleton.scss";
+
+.items-skeleton__img {
+    @extend .skeleton;
+    margin-bottom: 16px;
+}
+
+.items-skeleton__img::before {
+    @extend .skeleton-before;
+    width: 30px;
+    height: 100%;
+}
+
+.items-information-price-skeleton {
+    @extend .skeleton;
+    height: $xlarge;
+    width: 200px;
+}
+
+    .items-information-price-skeleton::before {
+        @extend .skeleton-before;
+        width: 200px;
+    }
+
+.items-information-location-skeleton {
+    @extend .skeleton;
+    margin: 16px 16px 0 16px;
+    height: $xlarge;
+    width: 100px;
+}
+
+    .items-information-location-skeleton::before {
+        @extend .skeleton-before;
+        width: 100px;
+    }
+    
+.items-description-skeleton {
+    @extend .skeleton;
+    height: $xlarge;
+    margin-top: 16px;
+    width: 100%;
+}
+
+    .items-description-skeleton::before {
+        @extend .skeleton-before;
+        width: 100%;
+    }
+
+@keyframes loading{
+    0%{
+        transform: translateX(0);
+    }
+    50%,
+    100%{
+        transform: translateX(460px);
+    }
+}

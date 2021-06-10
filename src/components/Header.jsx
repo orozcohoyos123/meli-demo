@@ -4,6 +4,13 @@ import "./styles/Header.scss";
 import Logo from '../assets/Logo_ML.png';
 import SearchBox from './SearchBox';
 
+/**
+ * Component for showing the Header, which includes the SearchBox component and logo
+ * 
+ * @component
+ * @example
+ * return (<Header />)
+ */
 const Header = () => {
   return (
     <header className="header">

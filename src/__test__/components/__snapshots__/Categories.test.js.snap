@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories sanpshot Comprobar UI componente Categories 1`] = `
+<div
+  className="categories col-11"
+>
+  <div
+    className="categories__container"
+  >
+    <a
+      href="/items?search=Consolas y Videojuegos"
+      onClick={[Function]}
+    >
+      <span
+        className="categories__item "
+      >
+        Consolas y Videojuegos
+      </span>
+    </a>
+    <img
+      alt="Next"
+      className="categories__separator"
+      src="ic_next.png"
+    />
+    <a
+      href="/items?search=Consolas"
+      onClick={[Function]}
+    >
+      <span
+        className="categories__item bold"
+      >
+        Consolas
+      </span>
+    </a>
+  </div>
+</div>
+`;
