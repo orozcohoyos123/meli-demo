@@ -3,11 +3,10 @@
 
 ## Table of Contents
 * [Resumen](#resumen)
-* [Instalación](#instalacion)
+* [Instalación](#instalación)
 * [Pruebas](#pruebas)
-* [Documentación](#documentacion)
+* [Documentación](#documentación)
 <!-- * [License](#license) -->
-
 
 ## Resumen
 - Desarrollo test técnico para aspirantes de la parte Front End de Mercado Libre, la prueba consta de un mini Mercado Libre donde se pueden consultar productos y sus detalles.
