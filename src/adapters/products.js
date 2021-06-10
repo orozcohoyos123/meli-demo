@@ -6,6 +6,12 @@ const headers = {
     'Content-Type': 'application/json'
 };
 
+
+/**
+ * function getFilteredProducts, calls MELI api to search a products list
+ * @param {string} filter query string to search information
+ * @returns promise products list
+ */
 const getFilteredProducts = async (filter) => {
     try {
         if (filter) {
@@ -13,18 +19,23 @@ const getFilteredProducts = async (filter) => {
                 method: 'GET',
                 headers: headers
             })
-            
+
             return res.json();
-        } 
-        else 
+        }
+        else
             return {}
-        
-    } 
+
+    }
     catch (error) {
         throw await error
     }
 };
 
+/**
+ * function getProductById, calls MELI api to search a product's details
+ * @param {string} itemId product id to get the detail information
+ * @returns promise products list
+ */
 const getProductById = async (itemId) => {
     try {
         if (itemId) {
@@ -34,16 +45,19 @@ const getProductById = async (itemId) => {
             })
 
             return res.json();
-        } 
-        else 
+        }
+        else
             return {}
-        
+
     }
     catch (error) {
         throw await error
     }
 }
 
+/**
+ * const productsAdapter, contains the functions to get data from MELI's API
+ */
 const productsAdapter = {
     getFilteredProducts,
     getProductById,

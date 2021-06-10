@@ -5,6 +5,39 @@ import { Link } from "react-router-dom";
 import "./styles/Products.scss";
 import "./styles/ProductsSkeleton.scss"
 
+/**
+ * Component for showing the products list
+ * 
+ * @component
+ * @prop {Object[]} products[] - Products array
+ * @prop {String} products[].id - Product's id
+ * @prop {String} products[].title - Product's title
+ * @prop {String} products[].condition - Product's condition
+ * @prop {Boolean} products[].free_shipping - Product's free ship indicator
+ * @prop {String} products[].picture - Product's image url
+ * @prop {{currency: string, amount: float, decimals: int}} products[].price - Product's price object
+ * @prop {Boolean} loading - Loading property to show skeleton loading animation
+ * @example
+ * const products = [
+ *  {
+ *    id: "MLA920543431",
+ *    title: "Sony Playstation 4 Slim 1tb Marvel's Spider-man/horizon Zero Dawn Complete Edition/ratchet & Clank  Color Negro"
+ *    condition: "new",
+ *    free_shipping: true,
+ *    location: "Monte Chingolo",
+ *    picture: "http://http2.mlstatic.com/D_810459-MLA44182891230_112020-I.jpg",
+ *    price:{
+ *      currency: "ARS",
+ *      decimals: 0,
+ *      amount: 74999
+ *    },
+ *  }
+ * ]
+ * 
+ * const loading = false
+ * 
+ * return (<Products products={products} loading{loading} />)
+ */
 const Products = ({ products, loading }) => {
   return (
     <section className="detail-wrapper col-11">
@@ -69,7 +102,13 @@ const Products = ({ products, loading }) => {
 };
 
 Products.propTypes = {
+  /**
+  * products array
+  */
   products: PropTypes.array,
+  /**
+    * loading flag to show animation
+    */
   loading: PropTypes.bool
 };
 

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>components/ProductDetails.jsx - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-adapters.html">adapters</a></li></ul><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Categories">Categories</a></li><li><a href="global.html#getFilteredProducts">getFilteredProducts</a></li><li><a href="global.html#getProductById">getProductById</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Home">Home</a></li><li><a href="global.html#ItemDetails">ItemDetails</a></li><li><a href="global.html#ItemList">ItemList</a></li><li><a href="global.html#Layout">Layout</a></li><li><a href="global.html#ProductDetails">ProductDetails</a></li><li><a href="global.html#Products">Products</a></li><li><a href="global.html#SearchBox">SearchBox</a></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">components/ProductDetails.jsx</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import PropTypes from "prop-types";
+import "./styles/ProductDetails.scss";
+import "./styles/ProductDetailsSkeleton.scss"
+
+/**
+ * Component for showing the product detail
+ * 
+ * @component
+ * @prop {Object} product - Product details object
+ * @prop {String} product.id - Product's id
+ * @prop {String} product.title - Product's title
+ * @prop {String} product.condition - Product's condition
+ * @prop {String} product.description - Product's description
+ * @prop {Boolean} product.free_shipping - Product's free ship indicator
+ * @prop {String} product.picture - Product's image url
+ * @prop {{currency: string, amount: float, decimals: int}} product.price - Product's price object
+ * @prop {String} product.sold_quantity - Product's sold quantity
+ * @prop {Boolean} loading - Loading property to show skeleton loading animation
+ * @example
+ * const product = 
+ * {
+ *  id: "MLA921510488",
+ *  title: "Microsoft Xbox Series X 1tb  Color Negro"
+ *  condition: "new",
+ *  description: "Con tu consola Xbox Series tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos. \n\nLa nueva generación de consolas está comandada por la Xbox Series que llegó al mercado para sorprender a todos. Su potencia y alto rendimiento te permitirá reducir las horas de descarga de juegos y contenido de manera considerable en comparación con otras consolas. Además, vas a poder jugar durante horas mientras te divertís con jugadores de todo el mundo.\n\nAdaptada a tus necesidades\nGuardá tus apps, fotos, videos y mucho más en el disco duro, que cuenta con una capacidad de 1 TB. \nAl contar con un procesador de 8 núcleos y uno gráfico, brinda una experiencia dinámica, respuestas ágiles, y transiciones fluidas de imágenes en alta definición.\nPor otro lado, tiene puerto USB y salida HDMI, que permiten conectar accesorios y cargar la batería de tu control mientras jugás.\n\nVas a poder reproducir música, ver tus películas y series favoritas a través de las aplicaciones descargables.",
+ *  free_shipping: true,
+ *  picture: "http://http2.mlstatic.com/D_963862-MLA45041918050_032021-I.jpg",
+ *  price: { currency: "ARS", amount: 264999, decimals: 0 },
+ *  sold_quantity: 0,
+ * }
+ * 
+ * const loading = false
+ * 
+ * return (&lt;ProductDetails product={product} loading{loading} />)
+ */
+const ProductDetails = ({ product, loading }) => {
+    return (
+        &lt;section className="product-wrapper col-11">
+            {loading ? (
+                &lt;>
+                    &lt;div className="row">
+                        &lt;div className="col-12 col-md-8">
+                            &lt;div>
+                                &lt;div className="product__image product-skeleton__image">&lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;div className="product-buy-info col-12 col-md-4">
+                            &lt;div className="product-sell-quantity product-sell-quantity-skeleton">&lt;/div>
+                            &lt;div className="product-name product-name-skeleton">&lt;/div>
+                            &lt;div className="product-price product-price-skeleton">&lt;/div>
+                            &lt;div className="product-price product-price-skeleton">&lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div className="product-info-wrapper row">
+                        &lt;div className="product-info-title col-12">
+                            &lt;div className="product-info-title-skeleton">&lt;/div>
+                        &lt;/div>
+                        &lt;div className="product-info-detail product-info-detail-skeleton col-12 col-md-8">&lt;/div>
+                        &lt;div className="product-info-detail product-info-detail-skeleton col-12 col-md-8">&lt;/div>
+                        &lt;div className="product-info-detail product-info-detail-skeleton col-12 col-md-8">&lt;/div>
+                        &lt;div className="product-info-detail product-info-detail-skeleton col-12 col-md-8">&lt;/div>
+                        &lt;div className="product-info-detail product-info-detail-skeleton col-12 col-md-8">&lt;/div>
+                    &lt;/div>
+                &lt;/>
+            ) : (
+                &lt;>
+                    {product &amp;&amp;
+                        &lt;>
+                            &lt;div className="row">
+                                &lt;div className="col-12 col-md-8">
+                                    &lt;div>
+                                        &lt;img className="product__image" src={product.picture} alt="" />
+                                    &lt;/div>
+                                &lt;/div>
+                                &lt;div className="product-buy-info col-12 col-md-4">
+                                    &lt;div className="product-sell-quantity">
+                                        &lt;span>
+                                            { product.condition } 
+                                        &lt;/span>
+                                        &lt;span>
+                                            &amp;nbsp; - &amp;nbsp; {product.sold_quantity} &amp;nbsp;
+                                        &lt;/span>
+                                        &lt;span>
+                                            vendido{(product.sold_quantity > 1 || product.sold_quantity === 0) ? 's' : ''}
+                                        &lt;/span>
+                                    &lt;/div>
+                                    &lt;div className="product-name">
+                                        &lt;span>
+                                            {product.title}
+                                        &lt;/span>
+                                    &lt;/div>
+                                    {product.price &amp;&amp; 
+                                        &lt;div className="product-price">
+                                            {product.price.currency} {new Intl.NumberFormat("de-DE").format(product.price.amount)}
+                                        &lt;/div>
+                                    }
+                                    &lt;div>
+                                        &lt;button className="ripple">
+                                            Comprar
+                                        &lt;/button>
+                                    &lt;/div>
+                                &lt;/div>
+
+                            &lt;/div>
+                            &lt;div className="product-info-wrapper row">
+                                &lt;div className="product-info-title col-12">
+                                    &lt;span>
+                                        Descripción del producto
+                                    &lt;/span>
+                                &lt;/div>
+                                &lt;div className="product-info-detail col-12 col-md-8">
+                                    &lt;span >
+                                        {product.description}
+                                    &lt;/span>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/>
+                    }
+                &lt;/>
+            )}
+        &lt;/section>
+    );
+}
+
+ProductDetails.propTypes = {
+    /**
+    * product detail information 
+    */
+    product: PropTypes.object,
+    /**
+    * loading flag to show animation
+    */
+    loading: PropTypes.bool
+};
+
+export default ProductDetails;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.7</a> on Wed Jun 09 2021 22:32:16 GMT-0500 (Central Daylight Time) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

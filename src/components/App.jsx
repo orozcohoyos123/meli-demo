@@ -8,6 +8,8 @@ import ItemDetails from '../pages/ItemDetails';
 import "./styles/App.scss";
 import "bootstrap/dist/css/bootstrap.css";
 
+/**
+ * App funtion configures the router module, includes the layout with header component*/
 function App() {
   return (
     <BrowserRouter>
@@ -23,15 +25,3 @@ function App() {
 }
 
 export default App;
-/* 
-
-          <Route exact path="/" component={Home} />
-          <Route exact path="/badges" component={Badges} />
-          <Route exact path="/badges/new" component={BagdeNews} />
-          <Route exact path="/badges/:badgeId/edit" component={BadgeEdit} />
-          <Route exact path="/badges/:badgeId" component={BadgeDetails} />
-          <Route component={NotFound} />
-
-  );
-}
-*/

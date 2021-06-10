@@ -5,10 +5,30 @@ import SearchLogo from "../assets/ic_Search.png";
 import './styles/SearchBox.scss';
 
 
+/**
+ * Component for showing a search input element
+ * 
+ * @component
+ * @example
+ * return (<SearchBox />)
+ */
 const SearchBox = () => {
+  /**
+   * Hook useHistory to redirect when form data is submitted
+   */
   const history = useHistory();
+
+  /**
+   * Hook useState query, look for information applying this query filter
+   * @example setQuery('nintendo')
+   */
   const [query, setQuery] = useState("");
   
+  /**
+   * function handleSubmit push a new entry in history stack to 
+   * redirect to products list view when the form is submitted
+   * @param {event} e catch the event to prevent the form's default behavior
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
         

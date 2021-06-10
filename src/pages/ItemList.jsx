@@ -6,14 +6,43 @@ import { initialState } from '../initialState';
 import "./styles/ItemList.scss";
 import "../styles/Common.scss";
 
+/**
+ * Component for showing the products list, render the products list and categories components
+ * 
+ * @component
+ * @example
+ * return (<ItemList />)
+ */
 const ItemList = (props) => {
+  
+  /**
+  * function URLSearchParams to get the query string from the url
+  */
   const query = new URLSearchParams(props.location.search);
   const params = query.get('search');
 
+  /**
+   * Hook useState loading, set a flag to indicate a loading state
+   * @example setQuery(true)
+   */
   const [loading, setLoading] = useState(false);
+
+   /**
+  * Hook useState products, set the products list to render in a child component
+  * @example setProduct({...productsObject})
+  */
   const [products, setProducts] = useState(initialState.products);
+  
+  /**
+  * Hook useState category, set the categories array information to render in a child component
+  * @example setCategories([{...category}, {...category}])
+  */
   const [categories, setCategories] = useState(initialState.categories);
 
+  /**
+   * Hook useEffect to call the function getFilteredProducts from the adapter,
+   * it's activated when query string changes const change 
+   */
   useEffect(() => {
     setLoading(true);
 

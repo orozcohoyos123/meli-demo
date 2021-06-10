@@ -4,9 +4,24 @@ import "./styles/Categories.scss";
 import NextLogo from "../assets/ic_next.png";
 import { Link } from "react-router-dom";
 
-const Categories = (props) => {
+/**
+ * Component for showing the categories from the products
+ * 
+ * @component
  
-  return (
+ * @prop {Object[]} items - Categories' list
+ * @prop {string} items[].id -  Category's id
+ * @prop {string} items[].name - Category's name
+ * @example
+ *  const items = 
+ * [
+ *  {id: "MLA1144", name: "Consolas y Videojuegos"},
+ *  {id: "MLA438566", name: "Consolas"}
+ * ]
+ * return (<Categories items={items} />)
+ */
+const Categories = (props) => {
+   return (
     <div className="categories col-11">
       <div className="categories__container">
         {props.items && props.items.map((item, index) => {
@@ -36,6 +51,9 @@ const Categories = (props) => {
 };
 
 Categories.propTypes = {
+  /**
+   * Categories' array
+   */
   categories: PropTypes.array
 };
 
