@@ -38,4 +38,4 @@
 - Para ver la documentación gráficamente ingresar a: [https://orozcohoyos123.github.io/meli-demo-docs/](https://orozcohoyos123.github.io/meli-demo-docs/)
 
 ## Contacto
-Sebastián Orozco Hoyos [LinkedIn](www.linkedin.com/in/sebastian-orozco-hoyos)
+Sebastián Orozco Hoyos [LinkedIn](https://www.linkedin.com/in/sebastian-orozco-hoyos)
