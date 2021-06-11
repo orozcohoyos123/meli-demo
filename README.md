@@ -10,7 +10,7 @@
 
 ## Resumen
 - Desarrollo test técnico para aspirantes de la parte Front End de Mercado Libre, la prueba consta de un mini Mercado Libre donde se pueden consultar productos y sus detalles.
-- Se utilizaró create-react-app para generar la plantilla inicial del proyecto.
+- Se utilizó create-react-app para generar la plantilla inicial del proyecto.
 - La suite de pruebas fue realizada con jest apoyado de enzyme para la validación de los componentes de React.
 - La documentación se desarrolló con JsDoc.
 
