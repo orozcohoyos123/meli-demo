@@ -19,7 +19,7 @@ const ItemList = (props) => {
   * function URLSearchParams to get the query string from the url
   */
   const query = new URLSearchParams(props.location.search);
-  const params = query.get('search');
+  const params = query.get('search') || props.queryMock;
 
   /**
    * Hook useState loading, set a flag to indicate a loading state

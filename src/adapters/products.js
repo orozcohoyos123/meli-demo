@@ -1,4 +1,4 @@
-const server = process.env.NODE_ENV === 'development' ? process.env.REACT_APP_DEV_SERVER : process.env.REACT_APP_PRO_SERVER
+import server from '../config/config';
 const endpoint = process.env.REACT_APP_ENDPOINT_PRODUCTS
 
 const headers = {
