@@ -126,6 +126,21 @@ describe('<ItemList />', () => {
         });
     });
 
+    test("Debe renderizar los componentes hijos si se envia el mock del query.", async () => {
+        jest.spyOn(productsAdapter, 'getFilteredProducts').mockResolvedValue(mockProducts);
+
+        await act(async () => {
+            const itemList = mount(
+                <BrowserRouterMock>
+                    <ItemList queryMock={"ps4"} />
+                </BrowserRouterMock>
+            );
+
+            const categories_container = itemList.find('.categories__container');
+            expect(categories_container.length).toEqual(1);
+        });
+    }); 
+
     /* test("Debe renderizar el componente sobreescribiendo URLSearchParams", async () => {
         jest.spyOn(URLSearchParams.prototype, "get").mockReturnValue("search");
         
