@@ -30,6 +30,7 @@
 ## Pruebas
 - Para ejecutar las pruebas correr el comando **npm run test**
 - Para visualizar la cobertura las pruebas correr el comando **npm run test:coverage**
+- Para ver la cobertura gráficamente ingresar a: [https://orozcohoyos123.github.io/meli-demo-test-coverage/](https://orozcohoyos123.github.io/meli-demo-test-coverage/)
 
 ## Documentación
 - Para ejecutar las compilación de la documentación ejecutar el comando **npm run docs**
