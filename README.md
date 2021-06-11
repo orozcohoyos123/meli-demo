@@ -35,6 +35,7 @@
 ## Documentación
 - Para ejecutar las compilación de la documentación ejecutar el comando **npm run docs**
 - Posteriormente en la carpeta **docs** podrá abrir el archivo index.html para verificar la documentación desde un navegador web.
+- Para ver la documentación gráficamente ingresar a: [https://orozcohoyos123.github.io/meli-demo-docs/](https://orozcohoyos123.github.io/meli-demo-docs/)
 
 ## Contacto
 Sebastián Orozco Hoyos [LinkedIn](www.linkedin.com/in/sebastian-orozco-hoyos)
